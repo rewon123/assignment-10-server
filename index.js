@@ -32,7 +32,7 @@ client.connect(err => {
             })
     })
     app.get('/register/:id', (req, res) => {
-        eventsCollection.find({ key: req.params.key })
+        eventsCollection.find({_id: ObjectId(req.params.id)})
             .toArray((err, documents) => {
                 res.send(documents[0])
             })
